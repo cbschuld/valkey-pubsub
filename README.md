@@ -58,41 +58,43 @@ await pubsub.publish({
 
 ## API
 
-`ValkeyPubSub.create(config): Promise<ValkeyPubSub>`
+### ValkeyPubSub
+
+#### `ValkeyPubSub.create(config): Promise<ValkeyPubSub>`
 
 Creates a PubSub instance.
 
 Config options:
-• addresses: Array of { host, port } objects (defaults to Valkey on localhost:6379)
-• protocol: 'RESP2' or 'RESP3' (default: 'RESP3')
-• clusterMode: true or false (default: false)
 
-⸻
+- addresses: Array of { host, port } objects (defaults to Valkey on localhost:6379)
+- protocol: 'RESP2' or 'RESP3' (default: 'RESP3')
+- clusterMode: true or false (default: false)
 
-`pubsub.subscribe(topic, queue)`
+#### `pubsub.subscribe(topic, queue)`
 
-Subscribes a queue to a topic. Every published message will be pushed to the queue and delivered to all its listeners.
+- Subscribes a queue to a topic. Every published message will be pushed to the queue and delivered to all its listeners.
 
-`pubsub.publish({ topic, payload }, callback?)`
+#### `pubsub.publish({ topic, payload }, callback?)`
 
-Publishes a message to the specified topic. Payload will be stringified before being sent.
+- Publishes a message to the specified topic. Payload will be stringified before being sent.
 
-`pubsub.cleanup()`
+#### `pubsub.cleanup()`
 
-Cleans up all open connections and subscriptions.
+- Cleans up all open connections and subscriptions.
 
-⸻
+### PubSubGenericQueue
 
-`PubSubGenericQueue<T>`
+#### `PubSubGenericQueue<T>`
 
 A generic in-memory delivery queue that stores items and allows multiple listeners.
 
 Methods:
-• `push(value: T)`: Pushes a value onto the queue
-• `onItem(callback: (value: T) => void)`: Registers a callback for new items
-• `isEmpty()`: Returns true if the queue is empty
-• `size()`: Returns the current number of pending items
-• `destroy()`: Destroys the queue and runs any registered close callbacks
+
+- `push(value: T)`: Pushes a value onto the queue
+- `onItem(callback: (value: T) => void)`: Registers a callback for new items
+- `isEmpty()`: Returns true if the queue is empty
+- `size()`: Returns the current number of pending items
+- `destroy()`: Destroys the queue and runs any registered close callbacks
 
 ## License
 
