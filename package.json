@@ -1,5 +1,5 @@
 {
-  "name": "@cbschuld/valkey-pubsub",
+  "name": "valkey-pubsub",
   "version": "1.0.1",
   "type": "module",
   "description": "Provides a Valkey-based publish-subscribe mechanism for decoupled communication between components. Provides support for Mercurius subscriptions using Valkey.",

@@ -1,4 +1,4 @@
-# @cbschuld/valkey-pubsub
+# valkey-pubsub
 
 A lightweight, TypeScript-native Pub/Sub implementation designed for use with [Mercurius GraphQL](https://github.com/mercurius-js/mercurius), built on top of Valkey (Redis-compatible).
 
@@ -19,7 +19,7 @@ Supports broadcasting messages to multiple listeners and enables easy event-driv
 ## Installation
 
 ```bash
-pnpm add @cbschuld/valkey-pubsub
+pnpm add valkey-pubsub
 ```
 
 ## Usage
@@ -27,7 +27,7 @@ pnpm add @cbschuld/valkey-pubsub
 ### Create the PubSub instance
 
 ```typescript
-import ValkeyPubSub, { PubSubGenericQueue } from "@cbschuld/valkey-pubsub";
+import ValkeyPubSub, { PubSubGenericQueue } from "valkey-pubsub";
 
 const pubsub = await ValkeyPubSub.create({
   addresses: [{ host: "localhost", port: 6379 }],
