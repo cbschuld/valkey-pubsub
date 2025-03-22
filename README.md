@@ -56,6 +56,47 @@ await pubsub.publish({
 });
 ```
 
+## Usage with Mercurius
+
+The original/driving force for the design was the [subscription models for Mercurius](https://mercurius.dev/#/docs/subscriptions)
+
+```typescript
+const pubsub = await ValkeyPubSub.create();
+
+fastify.decorate("pubsub", pubsub);
+
+fastify.register(mercurius, {
+  schema,
+  resolvers: await resolvers,
+  loaders: await loaders,
+  context: async (request: FastifyRequest) => {
+    return {
+      request,
+      db: server.db,
+      valkey: server.valkey,
+      pubsub: server.pubsub,
+      logger: server.log,
+    } as ServerDecorators;
+  },
+  subscription: {
+    context: async (_server, request) => {
+      return {
+        request,
+        db: server.db,
+        valkey: server.valkey,
+        pubsub: server.pubsub,
+        logger: server.log,
+      } as ServerDecorators;
+    },
+    pubsub: server.pubsub,
+  },
+  graphiql: false, // ℹ️ cannot use in place with helmet
+  allowBatchedQueries: true,
+  path: "/graphql", // 👈 Restricts GraphQL to this endpoint
+  prefix: "/",
+});
+```
+
 ## API
 
 ### ValkeyPubSub
