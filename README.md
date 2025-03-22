@@ -139,4 +139,13 @@ Methods:
 
 ## License
 
-MIT © Chris Schuld <cbschuld@gmail.com>
+MIT © Chris Schuld
+
+## Contact
+
+- **Email** - twitter handle @ gmail.com
+- **X** - @cbschuld
+
+## Contributing
+
+Yes, thank you! Please update the docs and tests and add your name to the package.json file.
