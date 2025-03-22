@@ -1,6 +1,6 @@
 {
   "name": "valkey-pubsub",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "type": "module",
   "description": "Provides a Valkey-based publish-subscribe mechanism for decoupled communication between components. Provides support for Mercurius subscriptions using Valkey.",
   "author": {
